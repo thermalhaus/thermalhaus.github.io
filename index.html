@@ -3,64 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protected Access</title>
+    <title>Thermal Haus</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            background-color: #1a1a1a; /* Dark charcoal, Dumbo night vibes */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         .container {
             text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle overlay */
+            border-radius: 10px;
+            backdrop-filter: blur(5px); /* Glassy, modern touch */
+        }
+        h2 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
         }
         input[type="password"] {
-            padding: 8px;
-            font-size: 16px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 1em;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #fff; /* Sleek underline */
+            background: transparent;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        input[type="password"]:focus {
+            border-bottom: 1px solid #00ccff; /* Neon accent */
         }
         button {
-            padding: 8px 16px;
-            font-size: 16px;
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
+            padding: 10px 25px;
+            font-size: 1em;
+            margin-top: 20px;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #00ccff; /* Pop of color */
+            border-color: #00ccff;
+            color: #1a1a1a;
         }
         .error {
-            color: red;
-            margin-top: 10px;
+            color: #ff4d4d;
+            font-size: 0.9em;
+            margin-top: 15px;
             display: none;
+            font-weight: 300;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Enter Password</h2>
-        <input type="password" id="passwordInput" placeholder="Password">
+        <h2>Thermal Haus</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Key">
         <br>
-        <button onclick="checkPassword()">Submit</button>
-        <p id="errorMessage" class="error">Incorrect password. Try again.</p>
+        <button onclick="checkPassword()">Unlock</button>
+        <p id="errorMessage" class="error">Wrong key. Try again.</p>
     </div>
 
     <script>
         function checkPassword() {
             const password = document.getElementById("passwordInput").value;
-            const correctPassword = "onyx"; // Replace with your desired password
+            const correctPassword = "onyx"; // Replace with your password
             const googleDriveLink = "https://drive.google.com/drive/folders/1z6SgirSZcE46GMTB4UqCh2UEBI5n0MjZ"; // Replace with your Google Drive link
 
             if (password === correctPassword) {
@@ -70,7 +93,6 @@
             }
         }
 
-        // Optional: Clear error message when typing again
         document.getElementById("passwordInput").addEventListener("input", function() {
             document.getElementById("errorMessage").style.display = "none";
         });
